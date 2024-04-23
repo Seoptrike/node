@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클럽 회원 가입서</title>
+    <link rel="stylesheet" href="./clubstyle.css">
+</head>
+<body>
+    <form action="" method="get" name="joinform">
+        <h1><strong>클럽회원가입서</strong></h1>
+        <fieldset>
+            <h3>
+                <caption>회원 정보</caption>
+            </h3>
+            <ul>
+                <li>
+                이름 : <input type="text" name="name" id="name" autofocus autocomplete="off" required placeholder="이름을 입력하세요." >
+                </li>
+                <li>
+                전화번호 : <input type="tel" name="phone" id="phone" required autocomplete="off" placeholder="- 없이 입력하세요.">
+                </li>
+                성별 :
+                <label for="sex">남성</label>
+                <input type="radio" name="sex" id="sex1" value="1">
+                <label for="loc1">여성</label>
+                <input type="radio" name="sex" id="sex2" value="2"><br/>
+            </ul>
+        </fieldset>
+       
+        <fieldset>
+            <h3><caption>상주 볼링장</caption></h3>
+                <label for="loc1">구로MK볼링센터</label>
+                <input type="checkbox" name="loc" id="loc1" value="1"><br/>
+                <label for="loc2">PS볼링장</labe2>
+                <input type="checkbox" name="loc" id="loc2" value="2"><br/>
+                <label for="loc3">아이엠볼링장</labe3>
+                <input type="checkbox" name="loc" id="loc3" value="3"><br/>
+                <label for="loc4">영등포브래그</labe4>
+                <input type="checkbox" name="loc" id="loc4" value="4"><br/>
+                <label for="loc5">기타:</labe5>
+                <input type="text" name="loc" id="loc5" value="" autocomplete="off" placeholder="자주 가는 볼링장" ><br/>
+                <br>
+        </fieldset>
+        <fieldset>
+            <h3><caption>볼러 정보</caption></h3>
+                구력 : <input type="number" name="years" id="years" maxlength="10" min="0" autocomplete="off">년<br>
+
+                에버리지 : <input type="range" name="AVG" id="avg" max="300" value="120" onchange="showValue()">
+                <span id="currentValue"></span><br>
+                투구 스타일:
+                <select name="style" id="style">
+                    <option value="">선택하세요.</option>
+                    <option value="1">클래식 스트로커</option>
+                    <option value="2">크랭커</option>
+                    <option value="3">덤리스</option>
+                    <option value="4">투핸드</option>
+                </select>
+                <br>
+                <br>
+        </fieldset>
+        <fieldset>
+            <h3><caption>[자기소개서]</caption></h3>
+            <textarea name="info" id="info" cols="60" rows="20" placeholder="50자 이내로 작성하세요." autocomplete="off"></textarea>
+        </fieldset>
+        <button type="button" onclick="submit()" value="등록하기">등록하기</button> <button type="reset">다시쓰기</button>
+    </form>    
+</body>
+</html>
+<script>
+    showValue();
+    function showValue()
+    {
+        document.getElementById("currentValue").innerHTML = 
+        document.getElementById("avg").value
+    }
+    function submit()
+    {
+        var joinform =
+        document.forms["joinform"].submit();
+    }
+</script>
